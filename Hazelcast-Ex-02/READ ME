@@ -1,0 +1,32 @@
+📦 HAZELCAST-EX-02 – Running Hazelcast and Management Center with Docker
+This repository contains the solution for the HAZELCAST-EX-02 assignment from i2i Academy. The goal is to pull and run the Hazelcast and Hazelcast Management Center containers using Docker on a local machine.
+
+🔧 Technologies Used
+🐳 Docker
+
+☁️ Hazelcast (In-Memory Data Grid)
+
+📊 Hazelcast Management Center
+
+🚀 Task Overview
+Pulled the required images from Docker Hub:
+
+bash
+Kopyala
+Düzenle
+docker pull hazelcast/hazelcast:latest
+docker pull hazelcast/management-center:latest
+Ran the containers:
+
+bash
+Kopyala
+Düzenle
+docker run hazelcast/hazelcast:latest
+docker run --rm -p 8080:8080 hazelcast/management-center:latest
+Verified the setup via the Management Center UI available at:
+👉 http://localhost:8080
+
+Screenshots were taken and attached to demonstrate successful setup.
+
+💡 About Hazelcast
+Hazelcast is a powerful in-memory data grid that supports distributed caching, real-time stream processing, and fast data storage across microservices. This task serves as an introduction to working with Hazelcast and containerized environments.
