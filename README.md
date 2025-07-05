@@ -318,3 +318,101 @@ You can view the VoltDB server dashboard and monitor operations.
 
 VoltDB is a high-performance in-memory database designed for fast data ingestion and real-time analytics.
 It’s ideal for use cases such as telco, finance, and IoT where low latency is critical.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+VoltDB EX-03 - Volt Active Data Exercise
+Description
+This project demonstrates the basic usage of VoltDB, an in-memory relational database designed for high-speed data processing. The goal of the exercise is to:
+
+Set up a VoltDB instance (locally or via Docker)
+
+Connect to VoltDB using the VoltDB command line (sqlcmd) and DBeaver
+
+Create a sample table and insert rows into it
+
+Verify data insertion with simple SELECT queries
+
+Access and use VoltDB Management Center UI to monitor the database
+
+Prerequisites
+Docker installed on your machine
+
+Java installed (required for VoltDB client and sqlcmd)
+
+DBeaver installed (for GUI database management)
+
+Internet connection to download VoltDB client jar via Maven repository
+
+Step-by-step Instructions
+Start VoltDB Docker Container
+
+bash
+Kopyala
+docker run -it --name volt1 -p 21212:21212 -p 8080:8080 full360/docker-voltdb-ce
+Or start the container if it already exists:
+
+bash
+Kopyala
+docker start volt1
+docker exec -it volt1 bash
+Connect to VoltDB using sqlcmd
+
+Inside the container, connect to the VoltDB server:
+
+bash
+Kopyala
+sqlcmd --servers=localhost --port=21212
+Create Sample Table
+
+sql
+Kopyala
+create table mth3902 (
+    id bigint not null,
+    start_date_epoch bigint,
+    create_user varchar(32),
+    constraint mth3902_pk primary key(id)
+);
+partition table mth3902 on column id;
+Insert Sample Rows
+
+sql
+Kopyala
+insert into mth3902 (id, start_date_epoch, create_user) values (1, 1698295044, 'MENNAN');
+insert into mth3902 (id, start_date_epoch, create_user) values (2, 1698295088, 'ERKUT');
+Verify Data Insertion
+
+sql
+Kopyala
+select * from mth3902 limit 1;
+Connect VoltDB with DBeaver
+
+Create a new Driver in DBeaver for VoltDB
+
+Add VoltDB client jar downloaded from Maven repository
+
+Create a new connection pointing to localhost:21212
+
+Test the connection and manage tables visually
+
+Access VoltDB Management Center
+
+Open in browser:
+
+arduino
+Kopyala
+http://localhost:8080
+This UI lets you monitor VoltDB status, tables, and performance.
+
+Screenshots
+(Add screenshots of your sqlcmd session, DBeaver connection, and VoltDB Management Center UI here)
+
+Notes
+If you did not get a cloud VM, running VoltDB locally with Docker is sufficient.
+
+Make sure port mappings (21212, 8080) are open and not blocked by firewalls.
+
+VoltDB is designed for real-time, fast transaction processing with horizontal scalability.
+
