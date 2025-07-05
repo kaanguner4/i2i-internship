@@ -256,3 +256,65 @@ Screenshots were captured to show the UI and endpoint definitions.
 
 💡 About Swagger & OpenAPI
 OpenAPI and Swagger provide an easy way to describe, document, and test RESTful APIs. With SpringDoc integration, REST endpoints are auto-documented and visualized for easy interaction and debugging.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+📦 VOLTDB-EX-02 – Run VoltDB in Docker
+
+This repository includes the solution for the **VOLTDB-EX-02** assignment from i2i Academy.  
+The goal is to set up and run the VoltDB Community Edition inside a Docker container, either locally or in a cloud environment (e.g., GCP or AWS), and demonstrate successful execution.
+
+---
+
+🔧 Technologies Used
+
+🐳 Docker
+
+🧱 VoltDB Community Edition
+
+---
+
+🚀 Task Overview
+
+The objective was to:
+
+1. Pull a public VoltDB image from Docker Hub.
+2. Run a VoltDB server instance in a Docker container.
+3. Optionally, expose ports and interact with the server using its web UI.
+4. Demonstrate successful container startup via screenshots.
+
+---
+
+🧪 Docker Image Used
+
+```bash
+docker pull full360/docker-voltdb-ce
+
+▶️ Run Instructions
+
+bash
+Kopyala
+Düzenle
+docker run -it --name volt1 -p 21212:21212 -p 8080:8080 full360/docker-voltdb-ce
+-p 21212:21212 → Exposes the VoltDB client port
+
+-p 8080:8080 → Exposes the VoltDB web UI
+
+--name volt1 → Names the container instance
+
+-it → Runs in interactive terminal mode
+
+🌐 Access VoltDB Web UI
+
+Once the container is running, open:
+
+👉 http://localhost:8080
+
+You can view the VoltDB server dashboard and monitor operations.
+
+💡 About VoltDB
+
+VoltDB is a high-performance in-memory database designed for fast data ingestion and real-time analytics.
+It’s ideal for use cases such as telco, finance, and IoT where low latency is critical.
