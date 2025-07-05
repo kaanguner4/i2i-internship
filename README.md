@@ -369,3 +369,95 @@ Make sure ports 21212 (SQL) and 8080 (UI) are open and accessible.
 
 🔗 VoltDB Management Center UI:
 👉 http://localhost:8080
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+📦 TESTAUT-EX-01 – Selenium ile E-Ticaret Login Testi
+This repository contains the solution for the TESTAUT-EX-01 assignment from i2i Academy.
+The objective is to automate the login functionality of an e-commerce website using Selenium WebDriver in Java. The automation was developed as a simple Maven project, and all steps were documented with code and screenshots.
+
+🔧 Technologies Used
+☕ Java
+
+🧪 Selenium WebDriver
+
+🐘 Maven
+
+⚙️ WebDriverManager
+
+🚀 Task Overview
+Created a Maven project and added dependencies for Selenium and WebDriverManager.
+
+Implemented a Selenium test in Java that:
+
+Navigates to a demo e-commerce login page (saucedemo.com)
+
+Fills in the username and password fields.
+
+Clicks the login button.
+
+Checks for a successful login and prints the result to the console.
+
+Added a delay so the browser window remains open for observation.
+
+Provided screenshots of the process as proof of execution.
+
+💻 Example Commands
+Maven dependencies (pom.xml):
+
+xml
+Kopyala
+Düzenle
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.21.0</version>
+</dependency>
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.8.0</version>
+</dependency>
+Run the test:
+
+bash
+Kopyala
+Düzenle
+mvn clean install
+# or, from your IDE: Right click > Run 'LoginTest.main()'
+👨‍💻 Code Overview
+The main Java test class:
+
+java
+Kopyala
+Düzenle
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver();
+
+driver.get("https://www.saucedemo.com/");
+driver.findElement(By.id("user-name")).sendKeys("standard_user");
+driver.findElement(By.id("password")).sendKeys("secret_sauce");
+driver.findElement(By.id("login-button")).click();
+
+if (driver.getPageSource().contains("Products")) {
+    System.out.println("✅ Giriş başarılı!");
+} else {
+    System.out.println("❌ Giriş başarısız!");
+}
+
+Thread.sleep(5000); // Browser stays open for 5 seconds
+driver.quit();
+💡 About Selenium WebDriver
+Selenium WebDriver is a popular framework for automating web browsers. It is widely used in software testing and RPA (robotic process automation) to simulate user actions in browsers.
+This assignment demonstrates the basic setup and automation of a login scenario on a demo e-commerce site.
+
+⚠️ Notes
+The credentials used in this test (standard_user / secret_sauce) are public demo credentials and may trigger password leak warnings in Chrome/Brave.
+This is normal and not a security issue for this project.
+
+All screenshots and outputs were provided as proof of execution.
+
+Do not use your real credentials for demo/test automation!
+
