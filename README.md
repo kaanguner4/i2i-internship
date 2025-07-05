@@ -289,7 +289,7 @@ The objective was to:
 
 🧪 Docker Image Used
 
-```bash
+---
 docker pull full360/docker-voltdb-ce
 
 ▶️ Run Instructions
