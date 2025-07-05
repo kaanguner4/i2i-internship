@@ -322,97 +322,50 @@ It’s ideal for use cases such as telco, finance, and IoT where low latency is 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+📦 VOLTDB-EX-03 – Volt Active Data Basic Operations
 
-VoltDB EX-03 - Volt Active Data Exercise
-Description
-This project demonstrates the basic usage of VoltDB, an in-memory relational database designed for high-speed data processing. The goal of the exercise is to:
+This repository contains the solution for the VOLTDB-EX-03 assignment from i2i Academy. The goal is to set up a VoltDB instance, connect using CLI and DBeaver, create a sample table, insert data, and verify it via queries and VoltDB Management Center UI.
 
-Set up a VoltDB instance (locally or via Docker)
+🔧 Technologies Used
+⚙️ VoltDB (In-memory relational DB)
+🐳 Docker (VoltDB container)
+🛠️ DBeaver (Database GUI client)
+💻 VoltDB SQL Command Line (sqlcmd)
 
-Connect to VoltDB using the VoltDB command line (sqlcmd) and DBeaver
+🚀 Task Overview
 
-Create a sample table and insert rows into it
+Start VoltDB using Docker
 
-Verify data insertion with simple SELECT queries
+Connect to VoltDB with sqlcmd CLI on port 21212
 
-Access and use VoltDB Management Center UI to monitor the database
+Create a sample table mth3902 with columns id, start_date_epoch, and create_user
 
-Prerequisites
-Docker installed on your machine
+Insert sample rows into the table
 
-Java installed (required for VoltDB client and sqlcmd)
+Query inserted data for verification
 
-DBeaver installed (for GUI database management)
+Connect VoltDB with DBeaver by setting up a VoltDB driver with Maven client jar
 
-Internet connection to download VoltDB client jar via Maven repository
+Access VoltDB Management Center UI on port 8080 for monitoring
 
-Step-by-step Instructions
-Start VoltDB Docker Container
-
-bash
-Kopyala
-docker run -it --name volt1 -p 21212:21212 -p 8080:8080 full360/docker-voltdb-ce
-Or start the container if it already exists:
-
-bash
-Kopyala
-docker start volt1
-docker exec -it volt1 bash
-Connect to VoltDB using sqlcmd
-
-Inside the container, connect to the VoltDB server:
-
-bash
-Kopyala
-sqlcmd --servers=localhost --port=21212
-Create Sample Table
+📂 Sample Table Structure
 
 sql
 Kopyala
 create table mth3902 (
-    id bigint not null,
-    start_date_epoch bigint,
-    create_user varchar(32),
-    constraint mth3902_pk primary key(id)
+  id bigint not null,
+  start_date_epoch bigint,
+  create_user varchar(32),
+  constraint mth3902_pk primary key(id)
 );
 partition table mth3902 on column id;
-Insert Sample Rows
+💡 Additional Notes
 
-sql
-Kopyala
-insert into mth3902 (id, start_date_epoch, create_user) values (1, 1698295044, 'MENNAN');
-insert into mth3902 (id, start_date_epoch, create_user) values (2, 1698295088, 'ERKUT');
-Verify Data Insertion
+VoltDB is designed for high-performance, low-latency transaction processing.
 
-sql
-Kopyala
-select * from mth3902 limit 1;
-Connect VoltDB with DBeaver
+Running VoltDB locally via Docker is sufficient if no cloud VM is available.
 
-Create a new Driver in DBeaver for VoltDB
+Make sure ports 21212 (SQL) and 8080 (UI) are open and accessible.
 
-Add VoltDB client jar downloaded from Maven repository
-
-Create a new connection pointing to localhost:21212
-
-Test the connection and manage tables visually
-
-Access VoltDB Management Center
-
-Open in browser:
-
-arduino
-Kopyala
-http://localhost:8080
-This UI lets you monitor VoltDB status, tables, and performance.
-
-Screenshots
-(Add screenshots of your sqlcmd session, DBeaver connection, and VoltDB Management Center UI here)
-
-Notes
-If you did not get a cloud VM, running VoltDB locally with Docker is sufficient.
-
-Make sure port mappings (21212, 8080) are open and not blocked by firewalls.
-
-VoltDB is designed for real-time, fast transaction processing with horizontal scalability.
-
+🔗 VoltDB Management Center UI:
+👉 http://localhost:8080
