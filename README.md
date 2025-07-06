@@ -461,3 +461,56 @@ All screenshots and outputs were provided as proof of execution.
 
 Do not use your real credentials for demo/test automation!
 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+📦 ORACLEDB-EX-02 – Running Oracle XE with Docker
+
+This repository contains the solution for the ORACLEDB-EX-02 assignment from i2i Academy. The objective is to pull and run an **Oracle Database Express Edition (XE)** container using Docker on a local machine (or optionally on a cloud instance like GCP or AWS).
+
+---
+
+🔧 Technologies Used  
+🐳 Docker  
+🛢️ Oracle Database Express Edition (XE)
+
+---
+
+🚀 Task Overview
+
+- Pulled and ran the Oracle XE image from the official community Docker repository:
+  ```bash
+  docker run -d --name oraclexe -p 1521:1521 -p 5500:5500 -e ORACLE_PASSWORD=ORACLE gvenzl/oracle-xe
+  ```
+- Verified that the container was running:
+  ```bash
+  docker ps
+  ```
+- Connected to the database via SQLPlus inside the container:
+  ```bash
+  docker exec -it oraclexe bash
+  sqlplus system/ORACLE@localhost:1521/XEPDB1
+  ```
+- Checked the database name as proof of successful connection:
+  ```sql
+  SELECT name FROM v$database;
+  ```
+- Screenshots were provided as proof of execution.
+
+---
+
+💡 About Oracle XE
+
+Oracle Database Express Edition (XE) is a free, lightweight, and easy-to-use edition of Oracle Database for learning, developing, and prototyping. It provides a full-featured database experience with minimal setup and resource requirements. This exercise demonstrates the basic deployment and connection of Oracle XE using Docker containers.
+
+---
+
+📝 **Notes:**
+
+- The used image `gvenzl/oracle-xe` does **not** include the Oracle Enterprise Manager web interface by default.  
+- For graphical management, tools like DBeaver can be used to connect to the database.
+
+---
+
+
