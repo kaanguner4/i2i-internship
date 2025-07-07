@@ -514,3 +514,64 @@ Oracle Database Express Edition (XE) is a free, lightweight, and easy-to-use edi
 ---
 
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+📦 ORACLEDB-EX-03 – Creating and Populating a Table in Oracle XE with SQL Developer
+
+This repository contains the solution for the ORACLEDB-EX-03 assignment from i2i Academy. The objective is to connect to an Oracle Database XE instance running in Docker, using Oracle SQL Developer, and to create and populate a `BOOK` table.
+
+---
+
+🔧 Technologies Used  
+🐳 Docker  
+🛢️ Oracle Database Express Edition (XE)  
+🖥️ Oracle SQL Developer
+
+---
+
+🚀 Task Overview
+
+1. **Downloaded and installed Oracle SQL Developer.**
+2. **Connected to the running Oracle XE instance** (created in ORACLEDB-EX-02) with the following settings:
+    - **Hostname:** `localhost`
+    - **Port:** `1521`
+    - **Username:** `system`
+    - **Password:** `ORACLE`
+    - **Service Name:** `XEPDB1`
+3. **Created the BOOK table** with the following schema:
+    ```sql
+    CREATE TABLE BOOK (
+        ID NUMBER,
+        NAME VARCHAR2(128),
+        ISBN VARCHAR2(32),
+        CREATE_DATE DATE DEFAULT SYSDATE
+    );
+    ```
+4. **Inserted 2 sample records into the BOOK table:**
+    ```sql
+    INSERT INTO BOOK (ID, NAME, ISBN) VALUES (1, 'Sefiller', '978-9753638024');
+    INSERT INTO BOOK (ID, NAME, ISBN) VALUES (2, '1984', '978-0451524935');
+    ```
+5. **Verified table creation and inserts** by running:
+    ```sql
+    SELECT * FROM BOOK;
+    ```
+6. **Screenshots were provided** as proof of each step (connection, table creation, data insertion, and data query).
+
+---
+
+💡 About Oracle SQL Developer & Oracle XE
+
+**Oracle SQL Developer** is a free and integrated development environment that simplifies the development and management of Oracle Database.  
+**Oracle Database XE** is a lightweight and free edition of Oracle Database, suitable for learning and prototyping.  
+This exercise demonstrates end-to-end connection, DDL, and DML operations with modern tooling.
+
+---
+
+📝 **Notes:**
+- The Oracle XE instance is running in a Docker container using the `gvenzl/oracle-xe` community image.
+- The database is accessible from the host using default ports.
+- For further development, other tools like DBeaver can also be used for connecting and managing the database.
+
+---
