@@ -629,6 +629,75 @@ This exercise demonstrates end-to-end automation of database record insertion us
 📝 Notes:
 Connection details (hostname, port, service name, username, password) are configurable in the Java source file.
 
+
+-----------------------------------------
+
+
+📦 PLSQL01-EX-08 – Print String Characters in PL/SQL
+This repository contains the solution for the PLSQL01-EX-08 assignment from i2i Academy. The objective is to write a PL/SQL script that prints the characters of a given string line by line using the DBMS_OUTPUT command.
+
+🔧 Technologies Used
+🐘 Oracle Database (PL/SQL)
+
+🖥️ Oracle SQL Developer (or any PL/SQL compatible client)
+
+🚀 Task Overview
+Input: A string with a maximum length of 30 characters (no spaces, no digits, and no duplicate consecutive characters).
+
+Output: The script first prints the input string, then prints each character in the string on a new line, as shown in the example below.
+
+Sample Output
+r
+Kopyala
+Düzenle
+String: acbbcadefghkkhgfed
+a
+c
+b
+b
+c
+a
+d
+e
+f
+g
+h
+k
+k
+h
+g
+f
+e
+d
+📝 How To Run
+Open Oracle SQL Developer (or any compatible PL/SQL client).
+
+Make sure SET SERVEROUTPUT ON; is enabled to see the output.
+
+Paste and run the following script:
+
+sql
+Kopyala
+Düzenle
+SET SERVEROUTPUT ON;
+
+DECLARE
+    input_str VARCHAR2(30) := 'acbbcadefghkkhgfed'; -- or 'abbcddfggfca'
+    i         INTEGER;
+    ch        CHAR(1);
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('String: ' || input_str);
+    FOR i IN 1 .. LENGTH(input_str) LOOP
+        ch := SUBSTR(input_str, i, 1);
+        DBMS_OUTPUT.PUT_LINE(ch);
+    END LOOP;
+END;
+/
+💡 About the Assignment
+This assignment is designed to help you practice SQL string functions, loops (FOR, WHILE), and basic PL/SQL output operations.
+You will gain hands-on experience with string processing and output formatting in PL/SQL.
+
+
 The Java program uses prepared statements for safe and efficient data insertion.
 
 The Oracle XE instance was run locally, but the same code can be adapted for remote instances.
